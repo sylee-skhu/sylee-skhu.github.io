@@ -1,8 +1,8 @@
 ---
 layout: page
 title: 2023 SEOUL MARATHON
-description: 4:43:18
-img: assets/img/230319_FULL.jpg
+description: 
+img: /assets/img/230319_FULL.jpg
 importance: 3
 category: fun
 ---
@@ -10,10 +10,10 @@ category: fun
 <div class="row mt-3">
     <!-- Image -->
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/230319_FULL.jpg" title="230319" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="/assets/img/230319_FULL.jpg" title="230319" class="img-fluid rounded z-depth-1" %}
     </div>
     <!-- Video -->
     <div class="col-sm mt-3 mt-md-0">
-        {% include video.html path="assets/video/230319_FULL.mp4" title="230319" class="img-fluid rounded z-depth-1" controls=true autoplay=true %}
+        {% include video.html path="/assets/video/230319_FULL.mp4" title="230319" class="img-fluid rounded z-depth-1" controls=true autoplay=true %}
     </div>
 </div>
