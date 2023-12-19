@@ -6,7 +6,7 @@ subtitle: <a href='https://www.skhu.ac.kr/'>Sungkonghoe University</a>. Address.
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: sylee.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
     <p>555 your office number</p>
@@ -19,8 +19,10 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
 
-Write your biography here. Tell the world about yourself. Link to your favorite [subreddit](http://reddit.com). You can put a picture in, too. The code is already in, just name your picture `prof_pic.jpg` and put it in the `img/` folder.
+Warm greetings!
 
-Put your address / P.O. box / other info right below your picture. You can also disable any of these elements by editing `profile` property of the YAML header of your `_pages/about.md`. Edit `_bibliography/papers.bib` and Jekyll will render your [publications page](/al-folio/publications/) automatically.
+I'm an Assistant Professor in the Division of Future Convergence at Sungkonghoe University, Seoul, Republic of Korea. I currently have a focus on Artificial Intelligence, Computer Vision, and Robotics, encompassing everything from theoretical foundations to diverse industrial applications. My passion lies in exploring how these cutting-edge technologies can be integrated to innovate and advance our understanding and capabilities in the field.
 
-Link to your social media connections, too. This theme is set up to use [Font Awesome icons](https://fontawesome.com/) and [Academicons](https://jpswalsh.github.io/academicons/), like the ones below. Add your Facebook, Twitter, LinkedIn, Google Scholar, or just disable all of them.
+Before accepting this position, I worked in the Samsung Electronics Co., Ltd. as a Senior Researcher. I studied for my Ph.D. at Durham under the supervision of [Euntai Kim](https://cilab.yonsei.ac.kr/) and completed this in 2018 with a dissertation entitled 'Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking'.
+
+Apart from my academic pursuits, I enjoy running, playing League of Legends, and exploring the world of wines.
