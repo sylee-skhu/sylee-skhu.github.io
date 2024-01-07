@@ -15,8 +15,10 @@
       institution: Yonsei University, Seoul, Republic of Korea
       year: Sep. 2011 - Feb. 2018
       description:
-        - "Advisor : <a href="https://cilab.yonsei.ac.kr/">"Prof. Euntai Kim"</a>"
-        - "Dissertation : <a href="https://uml.yonsei.ac.kr/search/detail/CATTOT000001892463#">"Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking"</a>"
+        - title: Advisor
+          contents: <a href="https://cilab.yonsei.ac.kr/">"Prof. Euntai Kim"</a>
+        - title: Dissertation
+          contents: <a href="https://uml.yonsei.ac.kr/search/detail/CATTOT000001892463#">"Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking"</a>
     - title: B.S. in Electrical & Electronic Engineering
       institution: Yonsei University, Seoul, Republic of Korea
       year: Mar. 2007 - Aug. 2011
