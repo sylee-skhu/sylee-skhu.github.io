@@ -16,9 +16,9 @@
       year: Sep. 2011 - Feb. 2018
       description:
         - title: Advisor
-          contents: <a href="https://cilab.yonsei.ac.kr/">"Prof. Euntai Kim"</a>
+          contents: <a href="https://cilab.yonsei.ac.kr/">Prof. Euntai Kim</a>
         - title: Dissertation
-          contents: <a href="https://uml.yonsei.ac.kr/search/detail/CATTOT000001892463#">"Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking"</a>
+          contents: <a href="https://uml.yonsei.ac.kr/search/detail/CATTOT000001892463#">Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking</a>
     - title: B.S. in Electrical & Electronic Engineering
       institution: Yonsei University, Seoul, Republic of Korea
       year: Mar. 2007 - Aug. 2011
@@ -65,3 +65,22 @@
       items:
         - Intelligent Robot
         - Autonomous Driving
+
+- title: Other Interests
+  type: nested_list
+  contents:
+    - title: Sports
+      items:
+        - Running (Full 4:10:01 / Half 1:47:50 / 10K 0:45:45)
+        - Soccer
+        - Baseball
+
+    - title: Games
+      items:
+        - League of Legends (Diamond in 2023)
+
+    - title: Drinking
+      items:
+        - Whiskies
+        - Wines
+        - Beers
