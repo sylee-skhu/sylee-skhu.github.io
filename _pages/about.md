@@ -9,7 +9,7 @@ profile:
   image: sylee.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>320, Yeondong-ro, Guro-gu, Seoul, 08359, Republic of Korea</p>
+    <p>Photo by <a href="https://www.instagram.com/forget_me_not_91/">@forget_me_not_91</a></p>
 
 news: true  # includes a list of news items
 latest_posts: false  # includes a list of the newest posts
