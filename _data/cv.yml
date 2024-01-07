@@ -11,87 +11,55 @@
 - title: Education
   type: time_table
   contents:
-    - title: PhD
+    - title: Ph.D. in Electrical & Electronic Engineering
       institution: Yonsei University, Seoul, Republic of Korea
-      year: 2011 - 2018
+      year: Sep. 2011 - Feb. 2018
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Federal teaching diploma
-      institution: Eidgenössische Technische Hochschule, Zurich, Switzerland
-      year: 1900
-      description:
-        - Description 1.
-        - Description 2.
+        - "Advisor : <a href="https://cilab.yonsei.ac.kr/">"Prof. Euntai Kim"</a>"
+        - "Dissertation : <a href="https://uml.yonsei.ac.kr/search/detail/CATTOT000001892463#">"Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking"</a>"
+    - title: B.S. in Electrical & Electronic Engineering
+      institution: Yonsei University, Seoul, Republic of Korea
+      year: Mar. 2007 - Aug. 2011
 
 - title: Experience
   type: time_table
   contents:
-    - title: Professor of Theoretical Physics
-      institution: Institute for Advanced Study, Princeton University
-      year: 1933 - 1955
+    - title: Assistant Professor
+      institution: Sungkonghoe University, Seoul, Republic of Korea
+      year: Sep. 2021 - Present
       description:
-        - Description 1.
-        - Description 2.
-        - title: Description 3.
-          contents:
-            - Sub-description 1.
-            - Sub-description 2.
-    - title: Visiting Professor
-      institution: California Institute of Technology, Pasadena, California, US
-      year: 1933
+       - Division of Future Convergence
+       - Division of Information Technology
+
+    - title: Senior Researcher
+      institution: Samsung Research, Samsung Electronics Co. Ltd., Seoul, Republic of Korea
+      year: Mar. 2018 - Aug. 2021
       description:
-        - Description 1.
-        - Description 2.
-
-    - title: Director
-      institution: Kaiser Wilhelm Institute for Physics, Berlin, Germany.
-      year: 1917-1933
-
-    - title: Professor of Theoretical Physics
-      institution: Karl-Ferdinand University, Prague, Czechoslovakia
-      year: 1911 - 1917
-      description:
-
-    - title: Associate Professor of Theoretical Physics
-      institution: University of Zurich, Zurich, Switzerland
-      year: 1909 - 1911
-
-- title: Open Source Projects
-  type: time_table
-  contents:
-    - title: <a href="https://github.com/alshedivat/al-folio">al-folio</a>
-      year: 2015-now
-      description: A beautiful, simple, clean, and responsive Jekyll theme for academics.
+       - Robot Center
+       - Autonomous Machine Lab
 
 - title: Honors and Awards
   type: time_table
   contents:
-    - year: 1921
+    - year: 2023
       items: 
-        - Nobel Prize in Physics 
-        - Matteucci Medal
-    - year: 2029
-      items: 
-        - Max Planck Medal
+        - Outstanding Performance Evaluation Award, Sungkonghoe University
 
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Topic 1.
+    - title: Artificial Intelligence
       items: 
-        - Description 1.
-        - Description 2.
-    - title: Topic 2.
-      items:
-        - Description 1.
-        - Description 2.
+        - Deep Learning
+        - Generative Models
+        - Explainable AI
 
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Hobby 1, Hobby 2, etc.
+    - title: Computer Vision
+      items:
+        - Multiple Object Tracking
+        - Action Recognition
+
+    - title: Industrial Applications
+      items:
+        - Intelligent Robot
+        - Autonomous Driving
