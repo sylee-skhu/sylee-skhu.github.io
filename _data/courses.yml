@@ -1,3 +1,19 @@
+- title: 2024 Spring
+  type: map
+  contents:
+    - name: XE00014-01
+      value: 인공지능캡스톤디자인
+    - name: XE00007-01
+      value: 확률과랜덤변수
+    - name: XB00020-01
+      value: Python프로젝트
+    - name: BF00002-01
+      value: Python프로그래밍
+    - name: VI00017-01
+      value: 전공탐색세미나(인공지능전공)
+    - name: AK00089-15
+      value: 대학생활세미나 I
+
 - title: 2023 Fall
   type: map
   contents:
