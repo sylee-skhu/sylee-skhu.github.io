@@ -1,7 +1,7 @@
 ---
 layout: page
 title: 2023 JTBC SEOUL MARATHON
-description: FULL Personal Best
+description: 
 img: assets/img/231105_FULL.jpg
 importance: 3
 category: fun
