@@ -56,9 +56,12 @@
 - title: Honors and Awards
   type: time_table
   contents:
+    - year: 2024
+      items: 
+        - 2023 Performance Evaluation Award, Sungkonghoe University
     - year: 2023
       items: 
-        - Outstanding Performance Evaluation Award, Sungkonghoe University
+        - 2022 Performance Evaluation Award, Sungkonghoe University
 
 - title: Academic Interests
   type: nested_list
