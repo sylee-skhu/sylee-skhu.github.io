@@ -1,10 +1,22 @@
+- title: 2024 Fall
+  type: map
+  contents:
+    - name: XE00001-01
+      value: 데이터분석입문
+    - name: XE00010-01
+      value: 오픈소스SW개발
+    - name: XE00011-01
+      value: 인공지능문제해결
+    - name: XE00018-01
+      value: 강화학습
+
 - title: 2024 Spring
   type: map
   contents:
-    - name: XE00014-01
-      value: 인공지능캡스톤디자인
     - name: XE00007-01
       value: 확률과랜덤변수
+    - name: XE00014-01
+      value: 인공지능캡스톤디자인
     - name: XB00020-01
       value: Python프로젝트
     - name: BF00002-01
