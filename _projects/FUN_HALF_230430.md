@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 
+title: Half Marathon
 description: 
 img: assets/img/230430_HALF_thumbnail.jpg
 importance: 7

@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 
-description: HALF Personal Best
+title: Half Marathon
+description: Half Personal Best
 img: assets/img/231008_HALF_thumbnail.jpg
 importance: 2
 category: fun

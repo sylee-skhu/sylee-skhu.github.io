@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 
+title: Full Marathon
 description: 
 img: assets/img/230319_FULL_thumbnail.jpg
 importance: 7
