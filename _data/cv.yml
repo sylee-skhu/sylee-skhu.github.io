@@ -43,6 +43,9 @@
 - title: Projects
   type: time_table
   contents:
+    - title: Real-time monitoring technology for identifying hazardous situations for workers in industrial settings using video-based AI
+      institution: the Ministry of SMEs and Startups
+      year: Jul. 2024 - Dec. 2026
     - title: Development of Core Technology for Preventing Identity Theft
       institution: SECUCHART GLOBAL Co., Ltd.
       year: May. 2023 - Dec. 2023
@@ -50,7 +53,7 @@
       institution: Sungkonghoe University
       year: Aug. 2022 - Jul. 2023
     - title: Research on AI integration technology for comprehensive context-aware multiple object tracking
-      institution: Ministry of Science and ICT / National Research Foundation of Korea
+      institution: Ministry of Science and ICT
       year: Mar. 2022 - Feb. 2024
 
 - title: Honors and Awards
