@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 2023 SEOUL RACE
+title: 
 description: HALF Personal Best
 img: assets/img/231008_HALF_thumbnail.jpg
 importance: 2

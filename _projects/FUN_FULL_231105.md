@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 2023 JTBC SEOUL MARATHON
+title: 
 description: 
 img: assets/img/231105_FULL_thumbnail.jpg
 importance: 7

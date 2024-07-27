@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 2023 SEOUL HALF MARATHON
+title: 
 description: 
 img: assets/img/230430_HALF_thumbnail.jpg
 importance: 7

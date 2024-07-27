@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 2024 SEOUL MARATHON
+title: 
 description: FULL Personal Best
 img: assets/img/240317_FULL_thumbnail.jpg
 importance: 1
