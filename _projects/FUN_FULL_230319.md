@@ -2,8 +2,8 @@
 layout: page
 title: 2023 SEOUL MARATHON
 description: 
-img: assets/img/230319_FULL.jpg
-importance: 3
+img: assets/img/230319_FULL_thumbnail.jpg
+importance: 7
 category: fun
 ---
 

@@ -2,8 +2,8 @@
 layout: page
 title: 2023 SEOUL HALF MARATHON
 description: 
-img: assets/img/230430_HALF.jpg
-importance: 3
+img: assets/img/230430_HALF_thumbnail.jpg
+importance: 7
 category: fun
 ---
 

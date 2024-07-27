@@ -2,8 +2,8 @@
 layout: page
 title: 2023 SEOUL RACE
 description: HALF Personal Best
-img: assets/img/231008_HALF.jpg
-importance: 3
+img: assets/img/231008_HALF_thumbnail.jpg
+importance: 2
 category: fun
 ---
 
