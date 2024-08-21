@@ -43,9 +43,6 @@
 - title: Projects
   type: time_table
   contents:
-    - title: Commercialization of a One-Stop Smart Solution for Small and Medium Construction Site Management (Scheduling, Safety) Based on Structured and Unstructured Data <br> 정형/비정형 데이터 기반 원스톱 중소건설 현장관리(공정, 안전) 스마트 솔루션의 기술사업화
-      institution: Ministry of SMEs and Startups (중소벤처기업부)
-      year: Aug. 2024 - Jul. 2026
     - title: "Making Action Detection Practical: Leveraging 2D CNNs for Real-Time and Online Applications <br> 행동 탐지의 실용화: 실시간 및 온라인 응용을 위한 2D CNN 활용"
       institution: Sungkonghoe University (성공회대학교)
       year: Aug. 2024 - Jul. 2025
