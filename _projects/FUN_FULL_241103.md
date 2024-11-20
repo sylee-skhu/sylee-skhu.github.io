@@ -2,7 +2,7 @@
 layout: page
 title: Full Marathon
 description: Full Personal Best
-img: assets/img/241103_FULL_thumbnail.png
+img: assets/img/241103_FULL_thumbnail.jpg
 importance: 1
 category: fun
 ---
