@@ -2,7 +2,7 @@
 layout: page
 title: Full Marathon
 description: 
-img: assets/img/231105_FULL_thumbnail.png
+img: assets/img/231105_FULL_thumbnail.jpg
 importance: 7
 category: fun
 ---
