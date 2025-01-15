@@ -1,3 +1,15 @@
+- title: 2025 Spring
+  type: map
+  contents:
+    - name: FI00003-01
+      value: 데이터사이언스입문
+    - name: XE00007-01
+      value: 확률과랜덤변수
+    - name: XE00014-01
+      value: 인공지능캡스톤디자인
+    - name: AC00007-03
+      value: 인권과평화
+
 - title: 2024 Fall
   type: map
   contents:
