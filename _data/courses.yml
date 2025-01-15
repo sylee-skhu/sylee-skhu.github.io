@@ -3,8 +3,8 @@
   contents:
     - name: XE00001-01
       value: 데이터분석입문
-    - name: XE00011-01
-      value: 인공지능문제해결
+    - name: XE00010-01
+      value: 오픈소스SW개발
     - name: XE00018-01
       value: 강화학습
 
