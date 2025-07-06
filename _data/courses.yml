@@ -1,3 +1,25 @@
+- title: 2025 Fall
+  type: map
+  contents:
+    - name: FI00003-01
+      value: 데이터사이언스입문
+    - name: FI00006-01
+      value: 오픈소스SW개발
+    - name: XE00011-01
+      value: 인공지능문제해결
+    - name: XE00018-01
+      value: 강화학습
+    - name: XE00022-01
+      value: 인턴십1
+    - name: XE00023-01
+      value: 인턴십2
+    - name: XE00024-01
+      value: 인턴십3
+    - name: XE00025-01
+      value: 인턴십4
+    - name: AC00007-04
+      value: 인권과평화
+
 - title: 2025 Spring
   type: map
   contents:
