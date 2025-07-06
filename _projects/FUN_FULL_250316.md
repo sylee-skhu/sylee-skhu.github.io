@@ -10,6 +10,6 @@ category: fun
 <div class="row mt-3">
     <!-- Image -->
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.html path="assets/img/250316_FULL.png" title="250316" class="img-fluid rounded z-depth-1" %}
+        {% include figure.html path="assets/img/250316_FULL.jpg" title="250316" class="img-fluid rounded z-depth-1" %}
     </div>
 </div>
