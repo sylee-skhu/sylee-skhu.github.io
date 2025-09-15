@@ -43,6 +43,9 @@
 - title: Projects
   type: time_table
   contents:
+    - title: "A Study on Vision-Language-based Multi-Object Tracking <br> 비전-언어 기반 다중 객체 추적에 관한 연구"
+      institution: Sungkonghoe University (성공회대학교)
+      year: Sep. 2025 - Aug. 2027  
     - title: "Making Action Detection Practical: Leveraging 2D CNNs for Real-Time and Online Applications <br> 행동 탐지의 실용화: 실시간 및 온라인 응용을 위한 2D CNN 활용"
       institution: Sungkonghoe University (성공회대학교)
       year: Aug. 2024 - Jul. 2025
