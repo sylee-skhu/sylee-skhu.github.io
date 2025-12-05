@@ -2,12 +2,21 @@
 ---
 
 @article{stonegat_ijcas,
-  author  = {Soeun Chun and Seokjun Song and Doyeop Lee and Sangyun Lee},
-  title   = {StoneGAT: A Robust Fall Detection Framework via Skeleton-Aware Feature Learning on Graph Attention Networks},
+  author = {Soeun Chun and Seokjun Song and Doyeop Lee and Sangyun Lee},
+  title = {StoneGAT: A Robust Fall Detection Framework via Skeleton-aware Graph Attention Networks},
   journal = {International Journal of Control, Automation, and Systems},
-  year    = {2025},
-  issn    = {1598-6446},
+  year = {2025},
+  volume = {23},
+  number = {12},
+  pages = {3702--3713},
+  month = {dec},
+  issn = {1598-6446, 2005-4092},
+  doi = {https://doi.org/10.1007/s12555-025-0546-z},
+  url = {https://ijcas.org/journal/view.html?doi=10.1007/s12555-025-0546-z},
   publisher = {The International Journal of Control, Automation, and Systems},
+  language = {eng},
+  keywords = {Edge attribute, fall detection, graph attention network, pose estimation, posture recognition},
+  abstract = {Robust fall detection is critical in safety-sensitive contexts such as elderly care and industrial environments. Recent fall detection methods leverage 2D human pose estimation, which encodes posture as compact skeletal keypoints. However, these systems are vulnerable to performance degradation when body parts are occluded or keypoints are missing, often due to environmental constraints or inaccuracies in pose estimation. To address this, we propose a fall detection framework based on single-frame 2D human pose estimation and a skeleton-aware graph attention network (StoneGAT). StoneGAT enhances conventional graph attention network (GAT) by incorporating edge features based on bone-related information, such as bone lengths, joint angles, and confidence-based metrics. In addition, we introduce a training strategy named PointOut, which probabilistically drops node features during training to encourage structure-aware learning, thereby improving model robustness. Experiments on a combined dataset of AI-hub and in-house dataset demonstrate that StoneGAT with PointOut outperforms baseline models, including standard MLP, graph convolutional network (GCN) and GAT, especially under severe occlusion. Ablation studies confirm the effectiveness of edge attributes and the PointOut strategy.},
   selected={true}
 }
 
