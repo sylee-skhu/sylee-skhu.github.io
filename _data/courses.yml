@@ -1,3 +1,21 @@
+- title: 2026 Spring
+  type: map
+  contents:
+    - name: FI00007-01
+      value: 인공지능문제해결
+    - name: XE00014-01
+      value: 인공지능캡스톤디자인
+    - name: XE00022-01
+      value: 인턴십1
+    - name: XE00023-01
+      value: 인턴십2
+    - name: XE00024-01
+      value: 인턴십3
+    - name: XE00025-01
+      value: 인턴십4
+    - name: AC00007-03
+      value: 인권과평화
+      
 - title: 2025 Fall
   type: map
   contents:
