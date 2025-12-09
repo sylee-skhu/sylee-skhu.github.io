@@ -3,7 +3,7 @@ layout: page
 title: Half Marathon
 description:
 img: assets/img/231008_HALF_thumbnail.jpg
-importance: 2
+importance: 7
 category: fun
 ---
 
