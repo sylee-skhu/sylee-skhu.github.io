@@ -58,7 +58,7 @@ export const news: NewsItem[] = [
   {
     date: "2024-07-01",
     type: "project",
-    en: "A new project on real-time video-AI monitoring of hazardous situations for industrial workers began, supported by the Ministry of SMEs and Startups (MSS, Korea).",
+    en: "A new project on real-time video-AI monitoring of hazardous situations for industrial workers began, supported by the Ministry of SMEs and Startups / TIPA (Korea).",
     ko: "새 연구과제 「영상 AI 기반 산업현장 작업자 위험상황 실시간 모니터링 기술」을 시작했습니다 (지원: 중소벤처기업부/중소기업기술정보진흥원).",
   },
   {
@@ -94,7 +94,7 @@ export const news: NewsItem[] = [
   {
     date: "2022-03-01",
     type: "project",
-    en: "A new project on AI integration technology for comprehensive context-aware multiple object tracking began, supported by the National Research Foundation of Korea (NRF), funded by MSIT.",
+    en: "A new project on AI integration technology for comprehensive context-aware multiple object tracking began, supported by the Ministry of Science and ICT / NRF.",
     ko: "새 연구과제 「포괄적 맥락 인식 기반 다중 물체 추적을 위한 AI 통합 기술 연구」를 시작했습니다 (지원: 과학기술정보통신부/한국연구재단).",
   },
 ];

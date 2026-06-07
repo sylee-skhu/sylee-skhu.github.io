@@ -31,14 +31,12 @@ export interface Publication {
   selected: boolean;
   preview?: string;
   links: { label: string; href: string }[];
-  raw: string;
 }
 
 interface BibEntry {
   type: string;
   key: string;
   fields: Record<string, string>;
-  raw: string;
 }
 
 function isSpace(c: string): boolean {
@@ -145,7 +143,6 @@ export function parseBibtex(input: string): BibEntry[] {
   while (i < n) {
     while (i < n && input[i] !== "@") i++;
     if (i >= n) break;
-    const entryStart = i;
     i++; // skip '@'
     let type = "";
     while (i < n && /[a-zA-Z]/.test(input[i])) {
@@ -190,9 +187,8 @@ export function parseBibtex(input: string): BibEntry[] {
       }
       if (name) fields[name.toLowerCase()] = value;
     }
-    const entryEnd = Math.min(i + 1, n);
     if (input[i] === "}") i++;
-    entries.push({ type, key, fields, raw: input.slice(entryStart, entryEnd).trim() });
+    entries.push({ type, key, fields });
   }
   return entries;
 }
@@ -237,7 +233,6 @@ function toPublication(e: BibEntry): Publication {
     selected: clean(f.selected || "").toLowerCase() === "true",
     preview: f.preview ? clean(f.preview) : undefined,
     links: buildLinks(f),
-    raw: e.raw,
   };
 }
 

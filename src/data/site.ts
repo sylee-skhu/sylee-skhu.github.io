@@ -18,7 +18,6 @@ export const site = {
     en: "/pdf/CV_SangyunLee.pdf",
     ko: "/pdf/CV_SangyunLee_KR.pdf",
   } satisfies Localized,
-  photo: "/img/sylee.jpg",
   photoCredit: {
     href: "https://www.instagram.com/forget_me_not_91/",
     name: "@forget_me_not_91",
