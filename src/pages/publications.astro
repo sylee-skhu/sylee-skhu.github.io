@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import PublicationsView from "../components/views/PublicationsView.astro";
+const lang = "en" as const;
+---
+
+<BaseLayout lang={lang} section="publications">
+  <PublicationsView lang={lang} />
+</BaseLayout>

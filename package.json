@@ -1,0 +1,19 @@
+{
+  "name": "sylee-skhu-homepage",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal academic homepage of Sangyun Lee (Sungkonghoe University)",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.0",
+    "astro": "^5.6.0"
+  }
+}

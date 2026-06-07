@@ -1,0 +1,104 @@
+---
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import { type Lang, useTranslations, pick, defaultLang, alternateLangPath } from "../i18n/ui";
+import { site } from "../data/site";
+
+interface Props {
+  lang: Lang;
+  section: "home" | "publications" | "projects" | "people" | "courses" | "cv" | "news" | "personal";
+  title?: string;
+  description?: string;
+}
+
+const { lang, section, title, description } = Astro.props;
+const t = useTranslations(lang);
+
+const navKey = {
+  home: "nav.home",
+  publications: "nav.publications",
+  projects: "nav.projects",
+  people: "nav.people",
+  courses: "nav.courses",
+  cv: "nav.cv",
+  news: "nav.news",
+  personal: "nav.personal",
+} as const;
+
+const name = pick(site.name, lang);
+const docTitle =
+  title ??
+  (section === "home"
+    ? `${name} · ${pick(site.role, lang)}`
+    : `${t(navKey[section])} · ${name}`);
+const docDesc = description ?? `${name} — ${pick(site.affiliation, lang)}`;
+
+const selfPath = Astro.url.pathname;
+const otherPath = alternateLangPath(selfPath, lang);
+const toHref = (p: string) => (Astro.site ? new URL(p, Astro.site).href : p);
+const canonical = toHref(selfPath);
+const enHref = toHref(lang === "en" ? selfPath : otherPath);
+const koHref = toHref(lang === "ko" ? selfPath : otherPath);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    {
+      lang === defaultLang && (
+        <script is:inline>
+          {/* Auto-route Korean-locale visitors to /ko on first visit; a manual choice is remembered. */}
+          (function () {
+            try {
+              var pref = localStorage.getItem("langPref");
+              if (pref === "en") return;
+              var goKo = pref === "ko";
+              if (!pref) {
+                var langs = navigator.languages || [navigator.language || ""];
+                goKo = langs.some(function (l) {
+                  return l && l.toLowerCase().indexOf("ko") === 0;
+                });
+              }
+              if (goKo) {
+                var p = location.pathname.replace(/\/+$/, "");
+                location.replace("/ko" + p + location.search + location.hash);
+              }
+            } catch (e) {}
+          })();
+        </script>
+      )
+    }
+    <script is:inline>
+      const stored = localStorage.getItem("theme");
+      if (stored === "dark" || (!stored && matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+    <title>{docTitle}</title>
+    <meta name="description" content={docDesc} />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="en" href={enHref} />
+    <link rel="alternate" hreflang="ko" href={koHref} />
+    <link rel="alternate" hreflang="x-default" href={enHref} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={docTitle} />
+    <meta property="og:description" content={docDesc} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={lang === "ko" ? "ko_KR" : "en_US"} />
+    <meta name="twitter:card" content="summary" />
+    <meta name="generator" content={Astro.generator} />
+  </head>
+  <body>
+    <Nav lang={lang} />
+    <main class="site-main">
+      <div class="container">
+        <slot />
+      </div>
+    </main>
+    <Footer lang={lang} />
+  </body>
+</html>

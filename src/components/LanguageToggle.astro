@@ -1,0 +1,36 @@
+---
+import { type Lang, alternateLangPath, ui, defaultLang } from "../i18n/ui";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const href = alternateLangPath(Astro.url.pathname, lang);
+const label = ui[lang]["lang.toggle"];
+const otherLang = lang === defaultLang ? "ko" : "en";
+---
+
+<a
+  id="lang-toggle"
+  class="icon-btn lang-toggle"
+  href={href}
+  hreflang={otherLang}
+  data-target={otherLang}
+  aria-label={label}>{label}</a>
+
+<style>
+  .lang-toggle {
+    width: auto;
+    padding: 0 0.6rem;
+  }
+</style>
+
+<script>
+  // Remember the visitor's explicit language choice so auto-routing respects it.
+  const el = document.getElementById("lang-toggle");
+  el?.addEventListener("click", () => {
+    try {
+      localStorage.setItem("langPref", (el as HTMLElement).dataset.target || "");
+    } catch (e) {}
+  });
+</script>

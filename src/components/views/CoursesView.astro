@@ -1,0 +1,58 @@
+---
+import { type Lang, useTranslations, pick } from "../../i18n/ui";
+import { courses } from "../../data/courses";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="page-header">
+  <h1>{t("courses.title")}</h1>
+  <p>{t("courses.description")}</p>
+</div>
+
+{
+  courses.map((term) => (
+    <section class="section">
+      <div class="section-head">
+        <h2>{pick(term.term, lang)}</h2>
+      </div>
+      <ul class="course-list">
+        {term.items.map((c) => (
+          <li>
+            <span class="course-code">{c.code}</span>
+            <span class="course-name">{c.name}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))
+}
+
+<style>
+  .course-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .course-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.45rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .course-code {
+    color: var(--text-muted);
+    font-variant-numeric: tabular-nums;
+    font-size: 0.82rem;
+    min-width: 108px;
+    flex-shrink: 0;
+  }
+  .course-name {
+    font-size: 0.95rem;
+  }
+</style>

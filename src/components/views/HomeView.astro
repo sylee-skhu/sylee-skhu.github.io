@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import profile from "../../assets/profile/sylee.jpg";
+import { type Lang, useTranslations, localizedPath, pick } from "../../i18n/ui";
+import { site } from "../../data/site";
+import SocialLinks from "../SocialLinks.astro";
+import PublicationItem from "../PublicationItem.astro";
+import NewsList from "../NewsList.astro";
+import { getPublications } from "../../lib/bibtex";
+import bibRaw from "../../data/papers.bib?raw";
+import { news } from "../../data/news";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const selected = getPublications(bibRaw).filter((p) => p.selected);
+const recentNews = news.slice(0, 5);
+const bio = pick(site.bio, lang);
+---
+
+<section class="hero">
+  <div class="hero-text">
+    <h1>{pick(site.name, lang)}</h1>
+    <p class="hero-sub">{pick(site.role, lang)} · {pick(site.affiliation, lang)}</p>
+    {bio.map((para) => <p class="hero-bio" set:html={para} />)}
+    <SocialLinks />
+  </div>
+  <figure class="hero-figure">
+    <Image src={profile} width={360} alt={pick(site.name, lang)} />
+    <figcaption class="muted">
+      {t("home.photoBy")}{" "}
+      <a href={site.photoCredit.href} target="_blank" rel="noopener noreferrer">{site.photoCredit.name}</a>
+    </figcaption>
+  </figure>
+</section>
+
+{
+  selected.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <h2>{t("home.selectedPublications")}</h2>
+        <a href={localizedPath("/publications", lang)}>{t("home.viewAllPublications")}</a>
+      </div>
+      {selected.map((p) => (
+        <PublicationItem pub={p} lang={lang} />
+      ))}
+    </section>
+  )
+}
+
+<section class="section">
+  <div class="section-head">
+    <h2>{t("home.news")}</h2>
+    <a href={localizedPath("/news", lang)}>{t("home.viewAllNews")}</a>
+  </div>
+  <NewsList items={recentNews} lang={lang} />
+</section>
+
+<style>
+  .hero {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 2.25rem;
+    align-items: start;
+  }
+  .hero h1 {
+    font-size: 2.1rem;
+    margin-bottom: 0.2rem;
+  }
+  .hero-sub {
+    color: var(--text-muted);
+    font-size: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .hero-bio {
+    font-size: 0.98rem;
+  }
+  .hero-figure {
+    margin: 0;
+    width: 210px;
+    flex-shrink: 0;
+  }
+  .hero-figure :global(img) {
+    width: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+  }
+  .hero-figure figcaption {
+    font-size: 0.74rem;
+    margin-top: 0.45rem;
+    text-align: center;
+  }
+  @media (max-width: 680px) {
+    .hero {
+      grid-template-columns: 1fr;
+    }
+    .hero-figure {
+      order: -1;
+      width: 168px;
+      margin: 0 auto;
+    }
+  }
+</style>

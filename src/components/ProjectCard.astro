@@ -1,0 +1,75 @@
+---
+import type { ResearchProject } from "../data/projects";
+import { type Lang, useTranslations, pick, localizedPath } from "../i18n/ui";
+
+interface Props {
+  project: ResearchProject;
+  lang: Lang;
+}
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+const period = project.period.replace(/present/i, t("common.present"));
+const statusLabel = project.status === "ongoing" ? t("projects.ongoing") : t("projects.completed");
+---
+
+<a class="card card-link" href={localizedPath(`/projects/${project.id}`, lang)}>
+  <div class="card-head">
+    <span class={`tag ${project.status === "ongoing" ? "" : "tag-muted"}`}>{statusLabel}</span>
+    <span class="muted period">{period}</span>
+  </div>
+  <h3 class="card-title">{pick(project.title, lang)}</h3>
+  <p class="card-meta muted">
+    {t("projects.funder")}: {pick(project.funder, lang)}
+    <br />
+    {t("projects.role")}: {pick(project.role, lang)}
+  </p>
+  <span class="card-more">{t("projects.viewDetail")}</span>
+</a>
+
+<style>
+  .card-link {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--shadow);
+    height: 100%;
+    color: inherit;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .card-link:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .card-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+  }
+  .period {
+    font-size: 0.82rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .card-title {
+    font-size: 1.02rem;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+    color: var(--text);
+  }
+  .card-meta {
+    margin: 0 0 0.85rem;
+    font-size: 0.88rem;
+    line-height: 1.6;
+  }
+  .card-more {
+    margin-top: auto;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+</style>

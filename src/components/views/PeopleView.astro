@@ -1,0 +1,74 @@
+---
+import { type Lang, useTranslations } from "../../i18n/ui";
+import PersonCard from "../PersonCard.astro";
+import { people } from "../../data/people";
+import { site } from "../../data/site";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const pis = people.filter((p) => p.role === "pi");
+const members = people.filter((p) => p.role === "phd" || p.role === "ms" || p.role === "undergrad");
+const alumni = people.filter((p) => p.role === "alumni");
+---
+
+<div class="page-header">
+  <h1>{t("people.title")}</h1>
+  <p>{t("people.description")}</p>
+</div>
+
+<section class="section">
+  <div class="section-head">
+    <h2>{t("people.pi")}</h2>
+  </div>
+  <div class="people-grid">
+    {pis.map((p) => <PersonCard person={p} lang={lang} />)}
+  </div>
+</section>
+
+{
+  members.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <h2>{t("people.members")}</h2>
+      </div>
+      <div class="people-grid">
+        {members.map((p) => (
+          <PersonCard person={p} lang={lang} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  alumni.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <h2>{t("people.alumni")}</h2>
+      </div>
+      <div class="people-grid">
+        {alumni.map((p) => (
+          <PersonCard person={p} lang={lang} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<section class="section">
+  <div class="section-head">
+    <h2>{t("people.join")}</h2>
+  </div>
+  <p>{t("people.joinText")} <a href={`mailto:${site.email}`}>{site.email}</a></p>
+</section>
+
+<style>
+  .people-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.75rem 1.25rem;
+  }
+</style>

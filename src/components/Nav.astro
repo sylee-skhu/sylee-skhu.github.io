@@ -1,0 +1,49 @@
+---
+import { type Lang, useTranslations, localizedPath, pick } from "../i18n/ui";
+import { site } from "../data/site";
+import ThemeToggle from "./ThemeToggle.astro";
+import LanguageToggle from "./LanguageToggle.astro";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const items = [
+  { key: "nav.publications", path: "/publications" },
+  { key: "nav.projects", path: "/projects" },
+  { key: "nav.people", path: "/people" },
+  { key: "nav.courses", path: "/courses" },
+  { key: "nav.cv", path: "/cv" },
+  { key: "nav.news", path: "/news" },
+] as const;
+
+const current = (Astro.url.pathname.replace(/\/+$/, "") || "/");
+const isActive = (path: string) => {
+  const target = localizedPath(path, lang).replace(/\/+$/, "") || "/";
+  return current === target || current.startsWith(target + "/");
+};
+---
+
+<header class="nav">
+  <nav class="nav-inner" aria-label="Main">
+    <a class="nav-brand" href={localizedPath("/", lang)}>{pick(site.name, lang)}</a>
+    <div class="nav-links">
+      {
+        items.map((it) => (
+          <a
+            href={localizedPath(it.path, lang)}
+            aria-current={isActive(it.path) ? "page" : undefined}
+          >
+            {t(it.key)}
+          </a>
+        ))
+      }
+    </div>
+    <div class="nav-tools">
+      <LanguageToggle lang={lang} />
+      <ThemeToggle lang={lang} />
+    </div>
+  </nav>
+</header>

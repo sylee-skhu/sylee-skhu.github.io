@@ -1,0 +1,56 @@
+---
+import { type Lang, useTranslations } from "../../i18n/ui";
+import ProjectCard from "../ProjectCard.astro";
+import { projects } from "../../data/projects";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const ongoing = projects.filter((p) => p.status === "ongoing");
+const completed = projects.filter((p) => p.status === "completed");
+---
+
+<div class="page-header">
+  <h1>{t("projects.title")}</h1>
+  <p>{t("projects.description")}</p>
+</div>
+
+{
+  ongoing.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <h2>{t("projects.ongoing")}</h2>
+      </div>
+      <div class="grid-cards">
+        {ongoing.map((p) => (
+          <ProjectCard project={p} lang={lang} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+{
+  completed.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <h2>{t("projects.completed")}</h2>
+      </div>
+      <div class="grid-cards">
+        {completed.map((p) => (
+          <ProjectCard project={p} lang={lang} />
+        ))}
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 1rem;
+  }
+</style>

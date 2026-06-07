@@ -1,0 +1,9 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import CoursesView from "../components/views/CoursesView.astro";
+const lang = "en" as const;
+---
+
+<BaseLayout lang={lang} section="courses">
+  <CoursesView lang={lang} />
+</BaseLayout>

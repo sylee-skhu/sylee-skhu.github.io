@@ -1,0 +1,166 @@
+---
+import { Image } from "astro:assets";
+import type { Publication } from "../lib/bibtex";
+import { getPublicationImage } from "../lib/images";
+import { selfName } from "../data/site";
+import { type Lang, useTranslations, ui } from "../i18n/ui";
+
+interface Props {
+  pub: Publication;
+  lang: Lang;
+}
+const { pub, lang } = Astro.props;
+const t = useTranslations(lang);
+const img = getPublicationImage(pub.preview);
+const typeLabel = (ui[lang] as Record<string, string>)[`pubtype.${pub.pubType}`];
+const meta = [
+  pub.venue,
+  pub.volume ? `vol. ${pub.volume}` : null,
+  pub.pages ? `pp. ${pub.pages}` : null,
+  pub.year || null,
+]
+  .filter(Boolean)
+  .join(", ");
+---
+
+<article class="pub" data-pubtype={pub.pubType}>
+  <div class="pub-thumb">
+    {
+      img ? (
+        <Image src={img} width={256} alt={pub.title} loading="lazy" />
+      ) : (
+        <div class="pub-thumb-ph">{pub.year || "—"}</div>
+      )
+    }
+  </div>
+  <div class="pub-body">
+    <h3 class="pub-title">{pub.title}</h3>
+    <p class="pub-authors">
+      {
+        pub.authors.map((a, i) => (
+          <span class={a === selfName ? "self" : undefined}>
+            {a}
+            {i < pub.authors.length - 1 ? ", " : ""}
+          </span>
+        ))
+      }
+    </p>
+    <p class="pub-venue">{meta}</p>
+    <div class="pub-links">
+      <span class="tag tag-muted">{typeLabel}</span>
+      {
+        pub.links.map((l) => (
+          <a class="pill-link" href={l.href} target="_blank" rel="noopener noreferrer">
+            {l.label}
+          </a>
+        ))
+      }
+      {
+        pub.abstract && (
+          <button class="pill-link abstract-toggle" type="button" aria-expanded="false">
+            {t("pub.abstract")}
+          </button>
+        )
+      }
+    </div>
+    {pub.abstract && (
+      <div class="pub-abstract-content" hidden>
+        <p>{pub.abstract}</p>
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .pub {
+    display: flex;
+    gap: 1.1rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .pub-thumb {
+    flex: 0 0 auto;
+  }
+  .pub-thumb img,
+  .pub-thumb-ph {
+    width: 128px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+  }
+  .pub-thumb-ph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  .pub-body {
+    min-width: 0;
+  }
+  .pub-title {
+    font-size: 1.02rem;
+    margin: 0 0 0.25rem;
+  }
+  .pub-authors {
+    margin: 0 0 0.15rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+  }
+  .pub-authors .self {
+    color: var(--text);
+    font-weight: 700;
+  }
+  .pub-venue {
+    margin: 0 0 0.5rem;
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--text-muted);
+  }
+  .pub-links {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .abstract-toggle {
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
+  }
+  .abstract-toggle[aria-expanded="true"] {
+    color: var(--accent);
+    border-color: var(--accent);
+  }
+  .pub-abstract-content {
+    margin-top: 0.6rem;
+  }
+  .pub-abstract-content p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.6;
+  }
+  @media (max-width: 540px) {
+    .pub-thumb img,
+    .pub-thumb-ph {
+      width: 84px;
+      height: 60px;
+    }
+  }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLButtonElement>(".abstract-toggle").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const content = btn.closest(".pub")?.querySelector(".pub-abstract-content");
+      if (!content) return;
+      const willOpen = content.hasAttribute("hidden");
+      content.toggleAttribute("hidden", !willOpen);
+      btn.setAttribute("aria-expanded", String(willOpen));
+    });
+  });
+</script>

@@ -1,0 +1,16 @@
+---
+import { type Lang, useTranslations } from "../../i18n/ui";
+import NewsList from "../NewsList.astro";
+import { news } from "../../data/news";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="page-header">
+  <h1>{t("nav.news")}</h1>
+</div>
+<NewsList items={news} lang={lang} />

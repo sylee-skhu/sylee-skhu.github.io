@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ProjectDetailView from "../../components/views/ProjectDetailView.astro";
+import { projects } from "../../data/projects";
+import { pick } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return projects.map((project) => ({ params: { slug: project.id }, props: { project } }));
+}
+
+const { project } = Astro.props;
+const lang = "en" as const;
+---
+
+<BaseLayout lang={lang} section="projects" title={`${pick(project.title, lang)} · Sangyun Lee`}>
+  <ProjectDetailView project={project} lang={lang} />
+</BaseLayout>

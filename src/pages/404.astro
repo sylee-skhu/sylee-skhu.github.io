@@ -1,0 +1,31 @@
+---
+import "../styles/global.css";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>404 · Page not found</title>
+    <meta name="robots" content="noindex" />
+    <script is:inline>
+      const stored = localStorage.getItem("theme");
+      if (stored === "dark" || (!stored && matchMedia("(prefers-color-scheme: dark)").matches)) {
+        document.documentElement.dataset.theme = "dark";
+      }
+    </script>
+  </head>
+  <body>
+    <main class="site-main">
+      <div class="container" style="text-align:center; padding-top:4rem;">
+        <h1 style="font-size:3rem; margin-bottom:0.25rem;">404</h1>
+        <p class="muted">The page you’re looking for doesn’t exist. / 페이지를 찾을 수 없습니다.</p>
+        <p style="margin-top:1.5rem;">
+          <a class="btn" href="/">← Home</a>
+        </p>
+      </div>
+    </main>
+  </body>
+</html>

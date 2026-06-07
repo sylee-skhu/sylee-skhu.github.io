@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import type { Person } from "../data/people";
+import { getPeopleImage } from "../lib/images";
+import { type Lang, pick } from "../i18n/ui";
+
+interface Props {
+  person: Person;
+  lang: Lang;
+}
+const { person, lang } = Astro.props;
+const img = getPeopleImage(person.photo);
+const name = pick(person.name, lang);
+const title = person.title ? pick(person.title, lang) : "";
+---
+
+<article class="person">
+  <div class="person-photo">
+    {
+      img ? (
+        <Image src={img} width={220} alt={name} />
+      ) : (
+        <span class="person-initials">{name.charAt(0)}</span>
+      )
+    }
+  </div>
+  <h3 class="person-name">{name}</h3>
+  {title && <p class="person-title muted">{title}</p>}
+  {
+    person.links && (
+      <div class="person-links">
+        {person.links.map((l) => (
+          <a
+            href={l.href}
+            target={l.href.startsWith("mailto") ? undefined : "_blank"}
+            rel={l.href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+          >
+            {l.label}
+          </a>
+        ))}
+      </div>
+    )
+  }
+</article>
+
+<style>
+  .person {
+    text-align: center;
+  }
+  .person-photo {
+    width: 132px;
+    height: 132px;
+    margin: 0 auto 0.75rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: var(--bg-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .person-photo :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .person-initials {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--text-muted);
+  }
+  .person-name {
+    font-size: 1.05rem;
+    margin: 0 0 0.15rem;
+  }
+  .person-title {
+    margin: 0 0 0.5rem;
+    font-size: 0.88rem;
+  }
+  .person-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+    font-size: 0.85rem;
+  }
+</style>

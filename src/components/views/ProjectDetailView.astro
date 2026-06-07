@@ -1,0 +1,106 @@
+---
+import { type Lang, useTranslations, pick, localizedPath } from "../../i18n/ui";
+import type { ResearchProject } from "../../data/projects";
+
+interface Props {
+  project: ResearchProject;
+  lang: Lang;
+}
+const { project, lang } = Astro.props;
+const t = useTranslations(lang);
+const period = project.period.replace(/present/i, t("common.present"));
+const statusLabel = project.status === "ongoing" ? t("projects.ongoing") : t("projects.completed");
+const desc = project.description ? pick(project.description, lang) : "";
+const paragraphs = desc ? desc.split(/\n\s*\n/).map((s) => s.trim()).filter(Boolean) : [];
+---
+
+<p class="back"><a href={localizedPath("/projects", lang)}>← {t("projects.back")}</a></p>
+
+<div class="page-header">
+  <div class="detail-head">
+    <span class={`tag ${project.status === "ongoing" ? "" : "tag-muted"}`}>{statusLabel}</span>
+    <span class="muted">{period}</span>
+  </div>
+  <h1>{pick(project.title, lang)}</h1>
+</div>
+
+<dl class="detail-meta">
+  <div>
+    <dt>{t("projects.funder")}</dt>
+    <dd>{pick(project.funder, lang)}</dd>
+  </div>
+  <div>
+    <dt>{t("projects.role")}</dt>
+    <dd>{pick(project.role, lang)}</dd>
+  </div>
+</dl>
+
+{
+  paragraphs.length > 0 ? (
+    <div class="detail-body">
+      {paragraphs.map((p) => (
+        <p>{p}</p>
+      ))}
+    </div>
+  ) : (
+    <p class="muted">{t("projects.empty")}</p>
+  )
+}
+
+{
+  project.links && project.links.length > 0 && (
+    <div class="detail-links">
+      {project.links.map((l) => (
+        <a class="pill-link" href={l.href} target="_blank" rel="noopener noreferrer">
+          {l.label}
+        </a>
+      ))}
+    </div>
+  )
+}
+
+<style>
+  .back {
+    margin-bottom: 1rem;
+    font-size: 0.88rem;
+  }
+  .detail-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.5rem;
+  }
+  .detail-meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 0.75rem 1.5rem;
+    margin: 0 0 1.75rem;
+    padding: 1rem 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-soft);
+  }
+  .detail-meta div {
+    margin: 0;
+  }
+  .detail-meta dt {
+    font-size: 0.76rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--text-muted);
+    margin-bottom: 0.15rem;
+  }
+  .detail-meta dd {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+  .detail-body p {
+    font-size: 0.98rem;
+  }
+  .detail-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.75rem;
+  }
+</style>

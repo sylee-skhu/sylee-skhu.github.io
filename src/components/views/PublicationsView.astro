@@ -1,0 +1,106 @@
+---
+import { type Lang, useTranslations, ui } from "../../i18n/ui";
+import PublicationItem from "../PublicationItem.astro";
+import { getPublications, groupByYear, countByType } from "../../lib/bibtex";
+import bibRaw from "../../data/papers.bib?raw";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+const pubs = getPublications(bibRaw);
+const groups = groupByYear(pubs);
+const counts = countByType(pubs);
+const L = ui[lang] as Record<string, string>;
+
+const filters = [
+  { key: "all", label: L["pubtype.all"], count: pubs.length },
+  { key: "intl_journal", label: L["pubtype.intl_journal"], count: counts.intl_journal },
+  { key: "domestic_journal", label: L["pubtype.domestic_journal"], count: counts.domestic_journal },
+  { key: "intl_conf", label: L["pubtype.intl_conf"], count: counts.intl_conf },
+  { key: "domestic_conf", label: L["pubtype.domestic_conf"], count: counts.domestic_conf },
+].filter((f) => f.key === "all" || f.count > 0);
+---
+
+<div class="page-header">
+  <h1>{t("pub.title")}</h1>
+  <p>{t("pub.description")}</p>
+</div>
+
+<div class="pub-filter">
+  {
+    filters.map((f, idx) => (
+      <button class={`filter-btn${idx === 0 ? " active" : ""}`} data-filter={f.key} type="button">
+        {f.label} <span class="filter-count">{f.count}</span>
+      </button>
+    ))
+  }
+</div>
+
+<div id="pub-groups">
+  {
+    groups.map((g) => (
+      <section class="section pub-year" data-year={g.year}>
+        <div class="section-head">
+          <h2>{g.year}</h2>
+        </div>
+        {g.items.map((p) => (
+          <PublicationItem pub={p} lang={lang} />
+        ))}
+      </section>
+    ))
+  }
+</div>
+
+<style>
+  .pub-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .filter-btn {
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.75rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    cursor: pointer;
+  }
+  .filter-btn:hover {
+    color: var(--text);
+    border-color: var(--accent);
+  }
+  .filter-btn.active {
+    background: var(--accent);
+    color: #fff;
+    border-color: var(--accent);
+  }
+  .filter-count {
+    opacity: 0.7;
+    font-variant-numeric: tabular-nums;
+  }
+</style>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+  const groups = document.querySelectorAll<HTMLElement>(".pub-year");
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      buttons.forEach((b) => b.classList.toggle("active", b === btn));
+      groups.forEach((g) => {
+        let visible = 0;
+        g.querySelectorAll<HTMLElement>(".pub").forEach((pub) => {
+          const show = filter === "all" || pub.dataset.pubtype === filter;
+          pub.style.display = show ? "" : "none";
+          if (show) visible++;
+        });
+        g.style.display = visible > 0 ? "" : "none";
+      });
+    });
+  });
+</script>
