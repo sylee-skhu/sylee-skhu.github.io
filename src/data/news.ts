@@ -23,13 +23,13 @@ export const news: NewsItem[] = [
     date: "2025-09-01",
     type: "project",
     en: "A new project, “A Study on Vision-Language-based Multi-Object Tracking,” began, supported by the Sungkonghoe University Research Grant 2025.",
-    ko: "새 연구과제 「비전-언어 기반 다중 객체 추적에 관한 연구」를 시작했습니다 (2025년 성공회대학교 교내연구비 지원).",
+    ko: "새 연구과제 「비전-언어 기반 다중 객체 추적에 관한 연구」를 시작했습니다 (지원: 성공회대학교).",
   },
   {
     date: "2025-08-01",
     type: "publication",
     en: "“StoneGAT: Skeleton-aware Graph Attention Networks for Robust Fall Detection from Single-frame Poses” was accepted to ICCAS 2025 (Incheon, Korea).",
-    ko: "「StoneGAT: Skeleton-aware Graph Attention Networks for Robust Fall Detection from Single-frame Poses」 논문이 ICCAS 2025 (인천)에 발표 논문으로 채택되었습니다.",
+    ko: "「StoneGAT: Skeleton-aware Graph Attention Networks for Robust Fall Detection from Single-frame Poses」 논문이 ICCAS 2025 (대한민국 인천)에 발표 논문으로 채택되었습니다.",
   },
   {
     date: "2025-05-19",
@@ -53,13 +53,13 @@ export const news: NewsItem[] = [
     date: "2024-08-01",
     type: "project",
     en: "A new project, “Making Action Detection Practical: Leveraging 2D CNNs for Real-Time and Online Applications,” began, supported by the Sungkonghoe University Research Grant 2024.",
-    ko: "새 연구과제 「행동 탐지의 실용화: 실시간 및 온라인 응용을 위한 2D CNN 활용」을 시작했습니다 (2024년 성공회대학교 교내연구비 지원).",
+    ko: "새 연구과제 「행동 탐지의 실용화: 실시간 및 온라인 응용을 위한 2D CNN 활용」을 시작했습니다 (지원: 성공회대학교).",
   },
   {
     date: "2024-07-01",
     type: "project",
     en: "A new project on real-time video-AI monitoring of hazardous situations for industrial workers began, supported by the Ministry of SMEs and Startups (MSS, Korea).",
-    ko: "새 연구과제 「영상 AI 기반 산업현장 작업자 위험상황 실시간 모니터링 기술」을 시작했습니다 (중소벤처기업부 지원).",
+    ko: "새 연구과제 「영상 AI 기반 산업현장 작업자 위험상황 실시간 모니터링 기술」을 시작했습니다 (지원: 중소벤처기업부/중소기업기술정보진흥원).",
   },
   {
     date: "2023-12-12",
@@ -71,7 +71,7 @@ export const news: NewsItem[] = [
     date: "2023-05-01",
     type: "project",
     en: "A new project, “Development of Core Technology for Preventing Identity Theft,” began, supported by SECUCHART GLOBAL Co., Ltd.",
-    ko: "새 연구과제 「명의도용 사고방지를 위한 요소 기술 개발」을 시작했습니다 (시큐차트글로벌(주) 지원).",
+    ko: "새 연구과제 「명의도용 사고방지를 위한 요소 기술 개발」을 시작했습니다 (지원: 시큐차트글로벌(주)).",
   },
   {
     date: "2023-04-14",
@@ -89,12 +89,12 @@ export const news: NewsItem[] = [
     date: "2022-08-01",
     type: "project",
     en: "A new project, “A Context-aware Multiple Object Tracking with Temporal Shifted Transformer,” began, supported by the Sungkonghoe University Research Grant 2022.",
-    ko: "새 연구과제 「Temporal Shifted Transformer를 이용한 상황 인지 다중 물체 추적」을 시작했습니다 (2022년 성공회대학교 교내연구비 지원).",
+    ko: "새 연구과제 「Temporal Shifted Transformer를 이용한 상황 인지 다중 물체 추적」을 시작했습니다 (지원: 성공회대학교).",
   },
   {
     date: "2022-03-01",
     type: "project",
     en: "A new project on AI integration technology for comprehensive context-aware multiple object tracking began, supported by the National Research Foundation of Korea (NRF), funded by MSIT.",
-    ko: "새 연구과제 「포괄적 맥락 인식 기반 다중 물체 추적을 위한 AI 통합 기술 연구」를 시작했습니다 (한국연구재단(NRF), 과학기술정보통신부 지원).",
+    ko: "새 연구과제 「포괄적 맥락 인식 기반 다중 물체 추적을 위한 AI 통합 기술 연구」를 시작했습니다 (지원: 과학기술정보통신부/한국연구재단).",
   },
 ];
