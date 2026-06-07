@@ -27,7 +27,9 @@ const meta = [
   <div class="pub-thumb">
     {
       img ? (
-        <Image src={img} width={256} alt={pub.title} loading="lazy" />
+        <a class="pub-thumb-link" href={img.src} target="_blank" rel="noopener noreferrer" aria-label={pub.title}>
+          <Image src={img} width={256} alt={pub.title} loading="lazy" />
+        </a>
       ) : (
         <div class="pub-thumb-ph">{pub.year || "—"}</div>
       )
@@ -80,6 +82,13 @@ const meta = [
   }
   .pub-thumb {
     flex: 0 0 auto;
+  }
+  .pub-thumb-link {
+    display: block;
+    transition: opacity 0.15s ease;
+  }
+  .pub-thumb-link:hover {
+    opacity: 0.85;
   }
   .pub-thumb img,
   .pub-thumb-ph {
