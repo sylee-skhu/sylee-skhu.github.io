@@ -7,7 +7,7 @@ import { site } from "../data/site";
 
 interface Props {
   lang: Lang;
-  section: "home" | "publications" | "projects" | "people" | "courses" | "cv" | "news" | "personal";
+  section: "home" | "publications" | "projects" | "people" | "courses" | "cv" | "news" | "hobbies";
   title?: string;
   description?: string;
 }
@@ -23,7 +23,7 @@ const navKey = {
   courses: "nav.courses",
   cv: "nav.cv",
   news: "nav.news",
-  personal: "nav.personal",
+  hobbies: "nav.hobbies",
 } as const;
 
 const name = pick(site.name, lang);

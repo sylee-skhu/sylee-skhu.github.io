@@ -1,5 +1,5 @@
 ---
-import { type Lang, useTranslations, localizedPath } from "../i18n/ui";
+import { type Lang, useTranslations } from "../i18n/ui";
 
 interface Props {
   lang: Lang;
@@ -11,7 +11,7 @@ const year = new Date().getFullYear();
 
 <footer class="footer">
   <div class="footer-inner">
-    <span>© {year} Sangyun Lee · <a href={localizedPath("/personal", lang)}>{t("nav.personal")}</a></span>
+    <span>© {year} Sangyun Lee</span>
     <span>{t("footer.builtWith")} {t("footer.hostedBy")}</span>
   </div>
 </footer>

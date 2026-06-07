@@ -1,0 +1,49 @@
+---
+import { type Lang, useTranslations } from "../../i18n/ui";
+import HobbyCard from "../HobbyCard.astro";
+import { hobbies, type HobbyCategory } from "../../data/hobbies";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const categories: { key: HobbyCategory; label: string }[] = [
+  { key: "sports", label: t("hobbies.sports") },
+  { key: "games", label: t("hobbies.games") },
+  { key: "drinks", label: t("hobbies.drinks") },
+];
+---
+
+<div class="page-header">
+  <h1>{t("hobbies.title")}</h1>
+  <p>{t("hobbies.description")}</p>
+</div>
+
+{
+  categories.map((c) => {
+    const items = hobbies.filter((h) => h.category === c.key);
+    if (items.length === 0) return null;
+    return (
+      <section class="section">
+        <div class="section-head">
+          <h2>{c.label}</h2>
+        </div>
+        <div class="grid-cards">
+          {items.map((h) => (
+            <HobbyCard hobby={h} lang={lang} />
+          ))}
+        </div>
+      </section>
+    );
+  })
+}
+
+<style>
+  .grid-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+  }
+</style>

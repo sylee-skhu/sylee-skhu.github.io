@@ -1,0 +1,56 @@
+---
+import { type Lang, pick, localizedPath } from "../i18n/ui";
+import type { Hobby } from "../data/hobbies";
+
+interface Props {
+  hobby: Hobby;
+  lang: Lang;
+}
+const { hobby, lang } = Astro.props;
+const hasDetail = Boolean(hobby.gallery || hobby.description);
+const href = hasDetail ? localizedPath(`/hobbies/${hobby.id}`, lang) : undefined;
+const Tag = hasDetail ? "a" : "div";
+---
+
+<Tag class={`hobby-card${hasDetail ? " is-link" : ""}`} href={href}>
+  <span class="hobby-emoji">{hobby.emoji}</span>
+  <span class="hobby-name">{pick(hobby.name, lang)}</span>
+  {hobby.note && <span class="hobby-note muted">{pick(hobby.note, lang)}</span>}
+</Tag>
+
+<style>
+  .hobby-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--bg-elevated);
+    padding: 1.1rem 1.2rem;
+    box-shadow: var(--shadow);
+    height: 100%;
+    color: inherit;
+  }
+  .hobby-card.is-link {
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .hobby-card.is-link:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .hobby-emoji {
+    font-size: 1.85rem;
+    line-height: 1;
+  }
+  .hobby-name {
+    font-weight: 700;
+    font-size: 1.02rem;
+    color: var(--text);
+  }
+  .hobby-note {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+</style>

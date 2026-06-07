@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../../../layouts/BaseLayout.astro";
+import HobbyDetailView from "../../../components/views/HobbyDetailView.astro";
+import { hobbies } from "../../../data/hobbies";
+import { pick } from "../../../i18n/ui";
+
+export function getStaticPaths() {
+  return hobbies
+    .filter((h) => h.gallery || h.description)
+    .map((hobby) => ({ params: { slug: hobby.id }, props: { hobby } }));
+}
+
+const { hobby } = Astro.props;
+const lang = "ko" as const;
+---
+
+<BaseLayout lang={lang} section="hobbies" title={`${pick(hobby.name, lang)} · 이상윤`}>
+  <HobbyDetailView hobby={hobby} lang={lang} />
+</BaseLayout>
