@@ -2,7 +2,7 @@ import type { Localized } from "../i18n/ui";
 
 export interface EduNote {
   label: Localized;
-  value: string;
+  value: Localized;
   href?: string;
 }
 
@@ -38,13 +38,15 @@ export const education: EduItem[] = [
     notes: [
       {
         label: { en: "Advisor", ko: "지도교수" },
-        value: "Prof. Euntai Kim",
+        value: { en: "Prof. Euntai Kim", ko: "김은태 교수" },
         href: "https://cilab.yonsei.ac.kr/",
       },
       {
         label: { en: "Dissertation", ko: "학위논문" },
-        value:
-          "Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking",
+        value: {
+          en: "Deep Neural Network based Discriminative Feature Learning and Its Application to Multiple Object Tracking",
+          ko: "심층 신경망 기반 차별적 특징 학습과 다중 물체 추적으로의 응용",
+        },
         href: "https://uml.yonsei.ac.kr/search/detail/CATTOT000001892463#",
       },
     ],

@@ -33,9 +33,9 @@ const cvHref = pick(site.cvPdf, lang);
                 <li>
                   <strong>{pick(n.label, lang)}:</strong>{" "}
                   {n.href ? (
-                    <a href={n.href} target="_blank" rel="noopener noreferrer">{n.value}</a>
+                    <a href={n.href} target="_blank" rel="noopener noreferrer">{pick(n.value, lang)}</a>
                   ) : (
-                    n.value
+                    pick(n.value, lang)
                   )}
                 </li>
               ))}
