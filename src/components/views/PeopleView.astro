@@ -2,7 +2,6 @@
 import { type Lang, useTranslations } from "../../i18n/ui";
 import PersonCard from "../PersonCard.astro";
 import { people } from "../../data/people";
-import { site } from "../../data/site";
 
 interface Props {
   lang: Lang;
@@ -59,10 +58,14 @@ const alumni = people.filter((p) => p.role === "alumni");
 }
 
 <section class="section">
-  <div class="section-head">
+  <div class="join-card">
     <h2>{t("people.join")}</h2>
+    <p>{t("people.joinText")}</p>
+    <div class="join-actions">
+      <a class="btn" href="/recruit.html">{t("people.recruitCta")}</a>
+      <a class="btn btn-ghost" href="/program.html">{t("people.programCta")}</a>
+    </div>
   </div>
-  <p>{t("people.joinText")} <a href={`mailto:${site.email}`}>{site.email}</a></p>
 </section>
 
 <style>
@@ -70,5 +73,24 @@ const alumni = people.filter((p) => p.role === "alumni");
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1.75rem 1.25rem;
+  }
+  .join-card {
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--accent-soft);
+    padding: 1.75rem 1.9rem;
+  }
+  .join-card h2 {
+    margin: 0 0 0.5rem;
+  }
+  .join-card > p {
+    margin: 0 0 1.15rem;
+    color: var(--text);
+    max-width: 62ch;
+  }
+  .join-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
   }
 </style>

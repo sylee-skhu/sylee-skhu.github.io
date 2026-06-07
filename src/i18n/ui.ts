@@ -52,6 +52,8 @@ export const ui = {
     "people.join": "Join us",
     "people.joinText":
       "I'm always looking for motivated students interested in AI, computer vision, and robotics. Feel free to reach out by email.",
+    "people.recruitCta": "Undergraduate research program →",
+    "people.programCta": "BS–MS combined program →",
     "courses.title": "Courses",
     "courses.description": "Courses I have taught at Sungkonghoe University.",
     "cv.download": "Download PDF",
@@ -105,6 +107,8 @@ export const ui = {
     "people.join": "함께하기",
     "people.joinText":
       "인공지능, 컴퓨터 비전, 로보틱스에 관심 있는 학생을 언제나 환영합니다. 이메일로 편하게 연락 주세요.",
+    "people.recruitCta": "학부연구생 모집 공고 →",
+    "people.programCta": "학·석사 연계과정 안내 →",
     "courses.title": "강의",
     "courses.description": "성공회대학교에서 진행한 강의 목록입니다.",
     "cv.download": "PDF 내려받기",
