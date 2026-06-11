@@ -1,0 +1,82 @@
+---
+import { type Lang, pick, localizedPath } from "../i18n/ui";
+import type { ResearchTopic } from "../data/research";
+import { resolveThumb } from "../lib/videoThumb";
+
+interface Props {
+  topic: ResearchTopic;
+  lang: Lang;
+}
+const { topic, lang } = Astro.props;
+const thumb = await resolveThumb(topic.videos?.[0]);
+const href = localizedPath(`/research/${topic.id}`, lang);
+---
+
+<a class="rcard" href={href}>
+  <div class="rcard-thumb">
+    {
+      thumb ? (
+        <img src={thumb} alt={pick(topic.title, lang)} loading="lazy" />
+      ) : (
+        <span class="rcard-ph" aria-hidden="true">▶</span>
+      )
+    }
+  </div>
+  <div class="rcard-body">
+    <h3 class="rcard-title">{pick(topic.title, lang)}</h3>
+    <p class="rcard-summary">{pick(topic.summary, lang)}</p>
+  </div>
+</a>
+
+<style>
+  .rcard {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    background: var(--bg-elevated);
+    color: inherit;
+    box-shadow: var(--shadow);
+    height: 100%;
+    transition: border-color 0.15s ease, transform 0.15s ease;
+  }
+  .rcard:hover {
+    text-decoration: none;
+    border-color: var(--accent);
+    transform: translateY(-2px);
+  }
+  .rcard-thumb {
+    aspect-ratio: 16 / 9;
+    background: linear-gradient(135deg, var(--accent-soft), var(--bg-soft));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  .rcard-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .rcard-ph {
+    font-size: 2rem;
+    color: var(--accent);
+    opacity: 0.7;
+  }
+  .rcard-body {
+    padding: 0.9rem 1.05rem 1.1rem;
+  }
+  .rcard-title {
+    font-size: 1.02rem;
+    margin: 0 0 0.3rem;
+    color: var(--text);
+  }
+  .rcard-summary {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin: 0;
+    line-height: 1.5;
+  }
+</style>

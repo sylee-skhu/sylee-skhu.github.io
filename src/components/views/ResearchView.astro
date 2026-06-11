@@ -1,0 +1,28 @@
+---
+import { type Lang, useTranslations } from "../../i18n/ui";
+import ResearchCard from "../ResearchCard.astro";
+import { research } from "../../data/research";
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<div class="page-header">
+  <h1>{t("research.title")}</h1>
+  <p>{t("research.description")}</p>
+</div>
+
+<div class="research-grid">
+  {research.map((tp) => <ResearchCard topic={tp} lang={lang} />)}
+</div>
+
+<style>
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.1rem;
+  }
+</style>

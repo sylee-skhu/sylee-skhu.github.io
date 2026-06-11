@@ -6,9 +6,11 @@ import { site } from "../../data/site";
 import SocialLinks from "../SocialLinks.astro";
 import PublicationItem from "../PublicationItem.astro";
 import NewsList from "../NewsList.astro";
+import ResearchCard from "../ResearchCard.astro";
 import { getPublications } from "../../lib/bibtex";
 import bibRaw from "../../data/papers.bib?raw";
 import { news } from "../../data/news";
+import { research } from "../../data/research";
 
 interface Props {
   lang: Lang;
@@ -26,7 +28,7 @@ const bio = pick(site.bio, lang);
     <h1>{pick(site.name, lang)}</h1>
     <p class="hero-sub">{pick(site.role, lang)} · {pick(site.affiliation, lang)}</p>
     {bio.map((para) => <p class="hero-bio" set:html={para} />)}
-    <SocialLinks />
+    <SocialLinks lang={lang} />
   </div>
   <figure class="hero-figure">
     <Image src={profile} width={360} alt={pick(site.name, lang)} />
@@ -36,6 +38,22 @@ const bio = pick(site.bio, lang);
     </figcaption>
   </figure>
 </section>
+
+{
+  research.length > 0 && (
+    <section class="section">
+      <div class="section-head">
+        <h2>{t("research.title")}</h2>
+        <a href={localizedPath("/research", lang)}>{t("home.viewAllResearch")}</a>
+      </div>
+      <div class="research-grid">
+        {research.map((tp) => (
+          <ResearchCard topic={tp} lang={lang} />
+        ))}
+      </div>
+    </section>
+  )
+}
 
 {
   selected.length > 0 && (
@@ -92,6 +110,11 @@ const bio = pick(site.bio, lang);
     font-size: 0.74rem;
     margin-top: 0.45rem;
     text-align: center;
+  }
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 1.1rem;
   }
   @media (max-width: 680px) {
     .hero {

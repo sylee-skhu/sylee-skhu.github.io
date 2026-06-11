@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import ResearchDetailView from "../../components/views/ResearchDetailView.astro";
+import { research } from "../../data/research";
+import { pick } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return research.map((topic) => ({ params: { slug: topic.id }, props: { topic } }));
+}
+
+const { topic } = Astro.props;
+const lang = "en" as const;
+---
+
+<BaseLayout lang={lang} section="research" title={`${pick(topic.title, lang)} · Sangyun Lee`}>
+  <ResearchDetailView topic={topic} lang={lang} />
+</BaseLayout>
