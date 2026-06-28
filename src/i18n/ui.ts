@@ -107,7 +107,7 @@ export const ui = {
     "projects.viewDetail": "자세히 →",
     "projects.back": "프로젝트로 돌아가기",
     "people.title": "연구실",
-    "people.description": "동적지능융합연구실(DILAB) 구성원입니다.",
+    "people.description": "동적지능연구실(DILAB) 구성원입니다.",
     "people.pi": "지도교수",
     "people.members": "구성원",
     "people.alumni": "졸업생",
