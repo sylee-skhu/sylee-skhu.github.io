@@ -8,6 +8,12 @@ export interface NewsItem {
 /** Newest first. To add news, prepend an entry. */
 export const news: NewsItem[] = [
   {
+    date: "2026-07-21",
+    type: "publication",
+    en: "“StoneROAD: A Study of Skeleton-aware Robust Online Action Detection under Pose-Estimation Noise” was accepted to the Journal of Korean Institute of Communications and Information Sciences (J-KICS).",
+    ko: "「StoneROAD: A Study of Skeleton-aware Robust Online Action Detection under Pose-Estimation Noise」 논문이 한국통신학회 논문지 (J-KICS)에 게재 승인되었습니다.",
+  },
+  {
     date: "2026-01-18",
     type: "publication",
     en: "“Empowering Transformers Spectrally: Towards Comprehensive Pattern Learning for Image Demoiréing” was accepted to ICASSP 2026 (Barcelona, Spain).",
@@ -35,13 +41,13 @@ export const news: NewsItem[] = [
     date: "2025-05-19",
     type: "publication",
     en: "“Feature Refinement with Vision State Space Modules for Tiny Object Detection” was accepted to the Journal of Institute of Control, Robotics and Systems (ICROS).",
-    ko: "「Feature Refinement with Vision State Space Modules for Tiny Object Detection」 논문이 제어·로봇·시스템학회 논문지(ICROS)에 게재 승인되었습니다.",
+    ko: "「Feature Refinement with Vision State Space Modules for Tiny Object Detection」 논문이 제어·로봇·시스템학회 논문지 (ICROS)에 게재 승인되었습니다.",
   },
   {
     date: "2024-12-17",
     type: "publication",
     en: "“DeepCampus: A Campus Tour Mobile Application Using Deep Learning-Based Vision Technologies” was accepted to the Transactions of the Korean Institute of Electrical Engineers (KIEE).",
-    ko: "「DeepCampus: A Campus Tour Mobile Application Using Deep Learning-Based Vision Technologies」 논문이 대한전기학회 논문지(KIEE)에 게재 승인되었습니다.",
+    ko: "「DeepCampus: A Campus Tour Mobile Application Using Deep Learning-Based Vision Technologies」 논문이 대한전기학회 논문지 (KIEE)에 게재 승인되었습니다.",
   },
   {
     date: "2024-11-11",
