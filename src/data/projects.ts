@@ -27,6 +27,17 @@ const PI: Localized = { en: "Principal Investigator", ko: "연구책임자" };
  */
 export const projects: ResearchProject[] = [
   {
+    id: "global-robot-simulator",
+    title: {
+      en: "Development of a Multimodal Vision-Based AI Robot Control Generation and Simulation Solution with Enhanced Precision and Accuracy through Behavior Imitation",
+      ko: "멀티모달 비전 기반 행동 모방 AI 로봇 제어 생성 및 정밀도/정확도 고도화 시뮬레이션 솔루션 개발",
+    },
+    funder: { en: "Ministry of SMEs and Startups / TIPA", ko: "중소벤처기업부/중소기업기술정보진흥원" },
+    role: PI,
+    period: "2026.07 – 2026.12",
+    status: "ongoing",
+  },
+  {
     id: "vlm-mot",
     title: {
       en: "A Study on Vision-Language-based Multi-Object Tracking",
