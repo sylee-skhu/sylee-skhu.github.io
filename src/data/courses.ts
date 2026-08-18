@@ -12,6 +12,18 @@ export interface Term {
 
 export const courses: Term[] = [
   {
+    term: { en: "2026 Fall", ko: "2026 가을" },
+    items: [
+      { code: "FI00010-01", name: "강화학습" },
+      { code: "XE00014-01", name: "인공지능캡스톤디자인" },
+      { code: "XE00022-01", name: "인턴십1" },
+      { code: "XE00023-01", name: "인턴십2" },
+      { code: "XE00024-01", name: "인턴십3" },
+      { code: "XE00025-01", name: "인턴십4" },
+      { code: "AK00179-05", name: "디지털리터러시" },
+    ],
+  },
+  {
     term: { en: "2026 Spring", ko: "2026 봄" },
     items: [
       { code: "FI00007-01", name: "인공지능문제해결" },
