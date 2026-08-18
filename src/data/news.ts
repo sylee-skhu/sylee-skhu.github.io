@@ -14,6 +14,12 @@ export const news: NewsItem[] = [
     ko: "「StoneROAD: A Study of Skeleton-aware Robust Online Action Detection under Pose-Estimation Noise」 논문이 한국통신학회 논문지 (J-KICS)에 게재 승인되었습니다.",
   },
   {
+    date: "2026-07-01",
+    type: "project",
+    en: "A new project, “Development of a Multimodal Vision-Based AI Robot Control Generation and Simulation Solution with Enhanced Precision and Accuracy through Behavior Imitation,” began, supported by the Ministry of SMEs and Startups / TIPA (Korea).",
+    ko: "새 연구과제 「멀티모달 비전 기반 행동 모방 AI 로봇 제어 생성 및 정밀도/정확도 고도화 시뮬레이션 솔루션 개발」를 시작했습니다 (지원: 중소벤처기업부/중소기업기술정보진흥원).",
+  },
+  {
     date: "2026-01-18",
     type: "publication",
     en: "“Empowering Transformers Spectrally: Towards Comprehensive Pattern Learning for Image Demoiréing” was accepted to ICASSP 2026 (Barcelona, Spain).",
